@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Video Playlist</title>
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="style.css">
+
+
+<!-- custom js file link  -->
+<script type="text/javascript" src="controls.js"></script>
+
+</head>
+<body>
+
+ <h3 class="heading">Video Gallery</h3>  
+   
+<div class="container">
+
+   <div class="main-video">
+      <div class="video">
+         <video id="main-video" src="Vids/This Old Guitar - John Denver (LIVE).mp4"></video>
+         <div class = "vid_controls_bar">
+            <button id = "playpausebtn">▶️</button>
+            <input id="seekslider" type= "range" min="0" max="100" value="0" step="1">
+            <span id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span>
+            <button id="mutebtn">🔊</button>
+            <input id="volumeslider" type= "range" min="0" max="100" value="100" step="1">
+            <button id="fullscreenbtn">[ &nbsp; ]</button>
+         </div>
+         <h3 class="main-vid-title">01. John Denver - This Old Guitar (LIVE)</h3>
+      </div>
+   </div>
+
+   <div class="video-list">
+
+      <div class="vid active">
+         <video src="Vids/This Old Guitar - John Denver (LIVE).mp4"></video>
+         <h3 class="title">01. John Denver - This Old Guitar (LIVE)</h3>
+      </div>
+
+      <div class="vid">
+         <video src="Vids/K'NAAN - Is Anybody Out There ft. Nelly Furtado.mp4"></video>
+         <h3 class="title">02. KNAAN, Nelly Furtado - Is Anybody Out There</h3>
+      </div>
+
+      <div class="vid">
+         <video src="Vids/I'll Be There - Walk off the Earth  (Official Music Video).mp4"></video>
+         <h3 class="title">03. Walk Off The Earth - I'll Be There</h3>
+      </div>
+
+      <div class="vid">
+         <video src="Vids/Himesh Patel, Lily James - I Want To Hold Your Hand (Tracks On The Tracks Sessions).mp4"></video>
+         <h3 class="title">04. Yesterday(Movie) - I Want To Hold Your Hand</h3>
+      </div>
+
+      <div class="vid">
+         <video src="Vids/Falling for You - The Petersens Original (LIVE).mp4"></video>
+         <h3 class="title">05. The Petersens - Falling For You (Original)</h3>
+      </div>
+
+      <div class="vid">
+         <video src="Vids/Dreams - The Petersens (LIVE).mp4"></video>
+         <h3 class="title">06. The Petersens - Dreams</h3>
+      </div>
+
+      <div class="vid">
+         <video src="Vids/Be Thou My Vision - The Petersens (LIVE).mp4"></video>
+         <h3 class="title">07. The Petersens - Be Thou My Vision</h3>
+      </div>
+
+      <div class="vid">
+         <video src="Vids/Tulsa Time - The Petersens (LIVE).mp4"></video>
+         <h3 class="title">08. The Petersens - Tulsa Time</h3>
+      </div>
+
+      <div class="vid">
+         <video src="Vids/More Than a Name on a Wall - The Petersens (LIVE).mp4"></video>
+         <h3 class="title">09. The Petersens - More Than A Name On A Wall</h3>
+      </div>
+
+   </div>
+
+</div>
+
+
+<script>
+let listVideo = document.querySelectorAll('.video-list .vid');
+let mainVideo = document.querySelector('.main-video video');
+let title = document.querySelector  ('.main-video .title');
+
+listVideo.forEach(video =>{
+   video.onclick = () =>{
+      listVideo.forEach(vid => vid.classList.remove('active'));
+      video.classList.add('active');
+      if (video.classList.contains('active')) {
+          let src = video.children[0].getAttribute('src');
+          mainVideo.src = src;
+          let text = video.children[0].innerHTML;
+          title.innerHTML = text;
+      };
+   };
+});
+</script>
+
+</body>
+</html>
